@@ -50,43 +50,55 @@ function getZonaNombreCompleto($zona) {
 
 ?>
 
+</html> 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Asesor Turnos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Bienvenido, <?php echo $asesor_nombre; ?></h1>
-    <h2>Zona: <?php echo getZonaNombreCompleto($zona); ?></h2>
-    <?php if ($turno_actual): ?>
-        <h3>Turno Actual</h3>
-        <p>Turno: <?php echo $turno_actual['numero']; ?></p>
-        <p>Cliente ID: <?php echo $turno_actual['cliente_id']; ?></p>
-        <form method="post" action="asesor_turnos.php">
-            <input type="hidden" name="turno_id" value="<?php echo $turno_actual['id']; ?>">
-            <input type="submit" name="finalizar_turno" value="Finalizar Turno">
-        </form>
-    <?php else: ?>
-        <p>Sin asignar</p>
-    <?php endif; ?>
+<body class="bg-gray-200 font-serif leading-normal tracking-normal">
 
-    <h3>En Espera</h3>
-    <?php if ($result_espera->num_rows > 0): ?>
-        <ul>
-            <?php while($row = $result_espera->fetch_assoc()): ?>
-                <li>
-                    Turno: <?php echo $row['numero']; ?>
-                    <form method="post" action="asesor_turnos.php" style="display:inline;">
-                        <input type="hidden" name="turno_id" value="<?php echo $row['id']; ?>">
-                        <input type="submit" name="atender_turno" value="Atender Cliente" <?php echo $turno_actual ? 'disabled' : ''; ?>>
-                    </form>
-                </li>
-            <?php endwhile; ?>
-        </ul>
-    <?php else: ?>
-        <p>No hay turnos en espera</p>
-    <?php endif; ?>
-    <a href="index.php">Volver al inicio</a>
+    <header class="bg-blue-900 text-white p-6">
+        <h1 class="text-4xl font-bold text-center">Bienvenido, <?php echo $asesor_nombre; ?></h1>
+        <h2 class="text-2xl text-center">Zona: <?php echo getZonaNombreCompleto($zona); ?></h2>
+    </header>
+
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+        <?php if ($turno_actual): ?>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Turno Actual</h3>
+                <p class="mb-2">Turno: <?php echo $turno_actual['numero']; ?></p>
+                <p class="mb-4">Cliente ID: <?php echo $turno_actual['cliente_id']; ?></p>
+                <form method="post" action="asesor_turnos.php">
+                    <input type="hidden" name="turno_id" value="<?php echo $turno_actual['id']; ?>">
+                    <input type="submit" name="finalizar_turno" value="Finalizar Turno" class="bg-red-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-red-600 transition duration-200">
+                </form>
+            </div>
+        <?php else: ?>
+            <p class="text-lg text-center mb-6">Sin asignar</p>
+        <?php endif; ?>
+
+        <h3 class="text-xl font-semibold mb-2">Turnos en Espera</h3>
+        <?php if ($result_espera->num_rows > 0): ?>
+            <ul class="space-y-4">
+                <?php while($row = $result_espera->fetch_assoc()): ?>
+                    <li class="bg-gray-100 p-4 rounded-lg shadow-md">
+                        <p class="mb-2">Turno: <?php echo $row['numero']; ?></p>
+                        <form method="post" action="asesor_turnos.php" style="display:inline;">
+                            <input type="hidden" name="turno_id" value="<?php echo $row['id']; ?>">
+                            <input type="submit" name="atender_turno" value="Atender Cliente" class="bg-blue-900 text-white font-medium py-2 px-6 rounded-lg hover:bg-blue-800 transition duration-200" <?php echo $turno_actual ? 'disabled' : ''; ?>>
+                        </form>
+                    </li>
+                <?php endwhile; ?>
+            </ul>
+        <?php else: ?>
+            <p class="text-lg text-center">No hay turnos en espera</p>
+        <?php endif; ?>
+
+        <a href="index.php" class="block text-center mt-8 underline">Volver al inicio</a>
+    </div>
+
 </body>
 </html>
