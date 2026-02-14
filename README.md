@@ -102,12 +102,13 @@ docker compose down
 4. Monitorear tiempo de atención con contador automático
 5. Finalizar turno cuando complete la atención
 
-![Menu Turnos 1](images/Menu%20Turnos%201.webp)
+![asesor con clientes](images/Asesor%20con%20Clientes.webp)
 
 ### Panel de Atención
 El sistema muestra en tiempo real los turnos disponibles y permite al asesor gestionar las atenciones de manera controlada, garantizando que solo un cliente sea atendido simultáneamente.
 
-![asesor con clientes](images/Asesor%20con%20Clientes.webp)
+
+![Menu Turnos 1](images/Menu%20Turnos%201.webp)
 
 ### Control de Concurrencia
 - Implementación de bloqueo para evitar atención múltiple
