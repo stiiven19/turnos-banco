@@ -93,7 +93,7 @@ docker compose down
 3. Ingresar identificación y nombre
 4. Recibir número de turno asignado
 
-![Menu](images/Menu.png)
+![Menu](images/Menu.webp)
 
 ### Para Asesores
 1. Iniciar sesión con credenciales de asesor
@@ -102,12 +102,12 @@ docker compose down
 4. Monitorear tiempo de atención con contador automático
 5. Finalizar turno cuando complete la atención
 
-![Menu Turnos 1](images/Menu%20Turnos%201.png)
+![Menu Turnos 1](images/Menu%20Turnos%201.webp)
 
 ### Panel de Atención
 El sistema muestra en tiempo real los turnos disponibles y permite al asesor gestionar las atenciones de manera controlada, garantizando que solo un cliente sea atendido simultáneamente.
 
-![asesor con clientes](images/asesor%20con%20clientes.png)
+![asesor con clientes](images/Asesor%20con%20Clientes.webp)
 
 ### Control de Concurrencia
 - Implementación de bloqueo para evitar atención múltiple
