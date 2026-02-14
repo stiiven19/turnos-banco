@@ -77,12 +77,13 @@ docker compose up --build
 - **Base de Datos**: localhost:3306
   - Usuario: `user`
   - Contraseña: `password`
-  - Base de datos: `turnos_db`
+  - Base de datos: `turnos-app`
 
 ### 4. Detener los Contenedores
 ```bash
 docker compose down
 ```
+
 
 ## Flujo de Uso
 
@@ -92,6 +93,8 @@ docker compose down
 3. Ingresar identificación y nombre
 4. Recibir número de turno asignado
 
+![Menu](images/Menu.png)
+
 ### Para Asesores
 1. Iniciar sesión con credenciales de asesor
 2. Ver turnos en espera para su zona
@@ -99,13 +102,12 @@ docker compose down
 4. Monitorear tiempo de atención con contador automático
 5. Finalizar turno cuando complete la atención
 
-### Para Administración
-1. Acceder a sección de registros
-2. Buscar por identificación de asesor o cliente
-3. Ver asesorías en curso y completadas
-4. Analizar tiempos de atención y estadísticas
+![Menu Turnos 1](images/Menu%20Turnos%201.png)
 
-## Características Técnicas
+### Panel de Atención
+El sistema muestra en tiempo real los turnos disponibles y permite al asesor gestionar las atenciones de manera controlada, garantizando que solo un cliente sea atendido simultáneamente.
+
+![asesor con clientes](images/asesor%20con%20clientes.png)
 
 ### Control de Concurrencia
 - Implementación de bloqueo para evitar atención múltiple
